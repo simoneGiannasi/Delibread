@@ -1,0 +1,7 @@
+    <footer>
+        <div class="container">
+            <p>&copy; <?php echo date('Y'); ?> DeliBread - Tutti i diritti riservati</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -6,5 +6,6 @@
     <title>DeliBread - <?php echo $page_title ?? 'Gestione Panetteria'; ?></title>
     <link rel="stylesheet" href="style/auth.css">
     <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style/dashboard.css">
 </head>
 <body>

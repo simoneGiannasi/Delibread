@@ -4,7 +4,7 @@
     <div class="auth-card">
         <div class="auth-header">
             <img src="assets/logo.png" alt="DeliBread Logo" class="logo">
-            <h1>ti è piaciuta la pagnotta adesso la cavalchi</h1>
+            <h1>Accedi a DeliBread</h1>
         </div>
 
         <form action="login.php" method="POST" class="auth-form">

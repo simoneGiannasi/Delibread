@@ -129,3 +129,42 @@ body {
         gap: 0;
     }
 }
+
+/* Stili aggiuntivi per i select */
+.auth-form select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 15px;
+    padding-right: 30px;
+}
+
+/* Miglioramenti per i form-group */
+.form-group {
+    transition: all 0.3s ease;
+}
+
+.form-group:focus-within {
+    transform: translateY(-2px);
+}
+
+.form-group:focus-within label {
+    color: var(--primary-dark);
+}
+
+/* Stili per i messaggi di errore */
+.error-message {
+    color: var(--error-color);
+    font-size: 12px;
+    margin-top: 5px;
+    display: none;
+}
+
+.input-error {
+    border-color: var(--error-color) !important;
+}
+
+.input-error + .error-message {
+    display: block;
+}

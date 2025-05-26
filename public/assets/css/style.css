@@ -1,0 +1,94 @@
+  /* Stili aggiuntivi per la tabella ordini */
+        .orders-section {
+            margin-top: 2rem;
+        }
+
+        .orders-section h2 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .no-orders {
+            text-align: center;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            color: #666;
+        }
+
+        .orders-table {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .table-header, .order-row {
+            display: grid;
+            grid-template-columns: 80px 120px 1fr 120px 100px 200px;
+            gap: 1rem;
+            padding: 1rem;
+            align-items: center;
+        }
+
+        .table-header {
+            background: #f8f9fa;
+            font-weight: bold;
+            color: #555;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .order-row {
+            border-bottom: 1px solid #f0f0f0;
+            transition: background-color 0.2s ease;
+        }
+
+        .order-row:hover {
+            background-color: #f8f9fa;
+        }
+
+        .status-badge {
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .status-inattesa { background: #fff3cd; color: #856404; }
+        .status-inpreparazione { background: #d1ecf1; color: #0c5460; }
+        .status-pronto { background: #d4edda; color: #155724; }
+
+        .col-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .col-actions button {
+            padding: 4px 8px;
+            border: none;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-view { background: #007bff; color: white; }
+        .btn-accept { background: #28a745; color: white; }
+        .btn-ready { background: #ffc107; color: #212529; }
+        .btn-deliver { background: #17a2b8; color: white; }
+
+        .col-actions button:hover {
+            opacity: 0.8;
+        }
+/* Aggiungi nel CSS */
+@media (max-width: 768px) {
+    .table-header, .order-row {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        padding: 0.5rem;
+    }
+    
+    .col-actions {
+        flex-direction: column;
+    }
+}

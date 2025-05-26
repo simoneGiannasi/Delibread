@@ -1,11 +1,34 @@
-<?php include 'templates/header.php'; 
+<?php 
+include 'templates/header.php'; 
 require_once 'conf/db_config.php';
 session_start();
+
+// Controlla se l'utente è già loggato
+if (isset($_SESSION['IdUtente'])) {
+    if ($_SESSION['Tipo'] == 'Panettiere') {
+        header("Location: dashboard_panetteria.php");
+    } else {
+        header("Location: dashboard.php");
+    }
+    exit();
+}
+
+// Gestione del form di login
 if (isset($_POST['email']) && isset($_POST['password'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $stmt = $conn->prepare("SELECT IdUtente, Tipo FROM Utente WHERE Email = ? AND Password = ?");
+    // Verifica connessione database
+    if (!$conn) {
+        die("Errore di connessione al database");
+    }
+
+    $stmt = $conn->prepare("SELECT * FROM Utente WHERE Email = ? AND pwd = ?");
+    
+    if (!$stmt) {
+        die("Errore nella preparazione della query: " . $conn->error);
+    }
+    
     $stmt->bind_param("ss", $email, $password);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -13,29 +36,26 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     $stmt->close();
 
     if ($row) {
-        $idUtente = $row['IdUtente'];
-        $tipo = $row['Tipo'];
-        if ($tipo == 'Panettiere') {
-            header("Location: dashboard_panetteria.php");
+
+        // LOGIN RIUSCITO - Imposta le variabili di sessione
+        $_SESSION['IdUtente'] = $row['IdUtente'];
+        $_SESSION['Tipo'] = $row['Tipo'];
+        $_SESSION['Nome'] = $row['Nome'];
+        $_SESSION['Cognome'] = $row['Cognome'];
+        
+        // Redirect in base al tipo di utente
+        if ($row['Tipo'] == 'Panettiere') {
+           header("Location: dashboard_panetteria.php");
         } else {
             header("Location: dashboard.php");
         }
         exit();
     } else {
-        echo "<script>alert('Email o password errati.');</script>";
+        // LOGIN FALLITO
+        $error_message = "Email o password errati.";
     }
-}
-if (isset($_SESSION['IdUtente'])) {
-    if ($_SESSION['Tipo'] == 'Panettiere') {
-        header("Location: dashboard_panetteria.php");
-    } else {
-        header("Location: dashboard.php");
-    }
-    header("Location: index.php");
-    exit();
 }
 
-session_destroy();
 
 ?>
 

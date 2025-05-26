@@ -1,4 +1,9 @@
-<?php include 'templates/header.php'; ?>
+<?php 
+include 'conf/db_config.php'; // Connessione al database
+
+$page_title = "Registrazione Panetteria";
+include 'templates/header.php'; 
+?>
 
 <div class="auth-container">
     <div class="auth-card">
@@ -93,4 +98,7 @@
     </div>
 </div>
 
-<?php include 'templates/footer.php'; ?>
+<?php 
+mysqli_close($conn);
+include 'templates/footer.php'; 
+?>

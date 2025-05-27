@@ -63,7 +63,7 @@
                 
                 <a href="ordini.php" class="menu-link <?php echo (isset($current_page) && $current_page == 'ordini') ? 'active' : ''; ?>">                     
                     <i class="bi bi-cart fs-5"></i>                     
-                    Effettua Ordine                 
+                    Effettua Ordini                 
                 </a>                  
                 
                 <a href="ordini_ricorrenti.php" class="menu-link <?php echo (isset($current_page) && $current_page == 'ordini_ricorrenti') ? 'active' : ''; ?>">                     
